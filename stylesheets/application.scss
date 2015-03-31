@@ -1,1 +1,71 @@
 @import "foundation.min.scss";
+
+// SPINNER
+@-webkit-keyframes fade {
+  from { opacity: 1; }
+  to { opacity: 0.2; }
+}
+@keyframes fade {
+  from { opacity: 1; }
+  to { opacity: 0.2; }
+}
+@-webkit-keyframes rotate {
+  from { -webkit-transform: rotate(0deg); }
+  to { -webkit-transform: rotate(360deg); }
+}
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.spinner.colorwheel {
+  position: relative;
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  overflow: hidden;
+  border-radius: 100%;
+  z-index: 0;
+}
+
+.spinner.colorwheel::before,
+.spinner.colorwheel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.spinner.colorwheel::before {
+  background: linear-gradient(to right, green, yellow);
+  -webkit-animation: rotate 2.5s linear infinite;
+  animation: rotate 2.5s linear infinite;
+}
+
+.spinner.colorwheel::after {
+  background: linear-gradient(to bottom, red, blue);
+  -webkit-animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
+  animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
+}
+
+.spinner .centerpiece {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: 100%;
+  box-sizing: border-box;
+  border-left: 0.5em solid transparent;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid rgba(255, 255, 255, 0.3);
+  border-top: 0.5em solid rgba(255, 255, 255, 0.3);
+  -webkit-animation: rotate 0.8s linear infinite;
+  animation: rotate 0.8s linear infinite;
+}
+
+// APP
+.hidden{
+  display: none;
+}

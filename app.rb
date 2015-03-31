@@ -9,6 +9,10 @@ class SinatraBootstrap < Sinatra::Base
     haml :index
   end
 
+  get '/search/:query' do
+    %Q[{"result":"You searched for #{params[:query]}"}]
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
