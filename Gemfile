@@ -7,6 +7,7 @@ gem 'haml'
 
 gem 'biblesearch-api'
 gem 'hashie', '~> 2.1.2'
+gem 'pry'
 
 # Sass & Compass
 gem 'sass'

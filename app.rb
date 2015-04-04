@@ -9,8 +9,8 @@ class SinatraBootstrap < Sinatra::Base
 
   get '/search/:query' do
     biblesearch = BibleSearch.new('CTvFYwXbINxqeO2eMGKSTqDqnnykcE7zGyGIqoZX')
-    result = biblesearch.search(params[:query])
-    %Q[{"result":"You searched for #{result}"}]
+    result = biblesearch.search(params[:query], {version:'eng-KJV'})
+    JSON.generate result
   end
 
   # start the server if ruby file executed directly

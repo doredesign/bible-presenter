@@ -2,7 +2,7 @@
   .large-12.columns
     %h1{} Welcome to Bible Presenter
 
-%form{id: 'passage_search'}
+%form{id: 'passage_search', onsubmit: 'return false;'}
   .row
     .large-6.small-12.columns
       .row
@@ -15,5 +15,9 @@
               .centerpiece
 
       .row
-        .large-6.small-12.columns
+        .large-12.columns
           #results
+            #text
+            #copyright_container
+
+#fums_container
