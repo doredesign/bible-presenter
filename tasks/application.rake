@@ -1,4 +1,4 @@
 desc 'Run the app'
 task :s do
-  system "rackup -p 4567"
+  system "bundle exec rackup -p 4567"
 end

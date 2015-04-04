@@ -1,6 +1,10 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    biblesearch-api (1.1.0)
+      hashie
+      httparty
+      oj
     chunky_png (1.2.8)
     compass (0.12.2)
       chunky_png (~> 1.2)
@@ -9,6 +13,13 @@ GEM
     fssm (0.2.10)
     haml (4.0.3)
       tilt
+    hashie (2.1.2)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.2)
+    multi_xml (0.5.5)
+    oj (2.12.1)
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -26,8 +37,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  biblesearch-api
   compass
   haml
+  hashie (~> 2.1.2)
   rake
   sass
   shotgun

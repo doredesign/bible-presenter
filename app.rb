@@ -1,6 +1,4 @@
-require 'rubygems'
 require 'sinatra/base'
-require 'haml'
 
 class SinatraBootstrap < Sinatra::Base
   require './helpers/render_partial'
@@ -10,7 +8,9 @@ class SinatraBootstrap < Sinatra::Base
   end
 
   get '/search/:query' do
-    %Q[{"result":"You searched for #{params[:query]}"}]
+    biblesearch = BibleSearch.new('CTvFYwXbINxqeO2eMGKSTqDqnnykcE7zGyGIqoZX')
+    result = biblesearch.search(params[:query])
+    %Q[{"result":"You searched for #{result}"}]
   end
 
   # start the server if ruby file executed directly
