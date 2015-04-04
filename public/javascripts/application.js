@@ -20,8 +20,11 @@ $(document).ready(function() {
     $.getJSON('/search/' + $input.val(), function(data){
       enable_form();
       // $fums_container.html(data.fums);
-      $text.html(data.value.passages[0].text);
+      var text = data.value.passages[0].text;
+      $text.html(text);
       $copyright_container.html(data.value.passages[0].copyright);
+
+      PresenterServer.sendData(data);
     });
 
     disable_form();

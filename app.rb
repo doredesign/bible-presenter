@@ -7,6 +7,10 @@ class SinatraBootstrap < Sinatra::Base
     haml :index
   end
 
+  get '/client' do
+    haml :client
+  end
+
   get '/search/:query' do
     biblesearch = BibleSearch.new('CTvFYwXbINxqeO2eMGKSTqDqnnykcE7zGyGIqoZX')
     result = biblesearch.search(params[:query], {version:'eng-KJV'})
