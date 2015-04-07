@@ -4,14 +4,14 @@
   .large-12.columns
     %h1{} Welcome to Bible Presenter
 
-%form{id: 'passage_search', onsubmit: 'return false;'}
+%form{id: 'passage_search'}
   .row
     .large-6.small-12.columns
       .row
         .large-12.columns
           %label Bible Passage
           %input{type: 'text', placeholder: 'Jhn 3:16'}
-          %a{id: 'do_search', href: '#', class: 'button'} Search
+          %input{type: 'submit', value: 'Search', id: 'do_search', class: 'button'}
           %span#colorwheel_container.hidden
             #colorwheel.spinner.colorwheel
               .centerpiece
