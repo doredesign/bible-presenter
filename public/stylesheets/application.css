@@ -8453,6 +8453,9 @@ th.hide-for-touch {
   display: none;
 }
 
+.reveal .slides h3 {
+  display: none;
+}
 .reveal .slides p {
   text-align: left;
 }
