@@ -4,14 +4,35 @@ $(document).ready(function() {
   var event_handler = function(data){
     // $fums_container.html(data.fums);
     var text = data.value.passages[0].text;
-    $text.html(text);
-    $copyright_container.html(data.value.passages[0].copyright);
+    set_passage(text);
+    init_reveal();
+  };
+
+  var set_passage = function(passage){
+    add_slide(passage);
+  };
+
+  var add_slide = function(content){
+    var slide_content = '<section>' + content + '</section>';
+    $slides.append(slide_content);
+  };
+
+  var init_reveal = function(){
+    if(!state.revealed){
+      state.revealed = true;
+      Reveal.initialize({
+        controls: false,
+        progress: false,
+        transition: 'none'
+      });
+    }
   };
 
   PresenterClient.run(event_handler);
 
-  var $results = $('#results');
-  var $text = $results.find('#text');
-  var $copyright_container = $results.find('#copyright_container');
+  var $slides = $('.slides');
   var $fums_container = $('#fums_container');
+  var state = {
+    revealed: false
+  };
 });

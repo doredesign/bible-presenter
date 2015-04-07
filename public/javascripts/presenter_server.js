@@ -1,7 +1,7 @@
 PresenterServer = (function(_){
   var open_window = function(){
     persist_server_queue();
-    state.window_open = window.open("/client", "_blank", "toolbar=no, scrollbars=no, resizable=yes, top=300, left=500, width=400, height=400");
+    state.window_open = window.open("/client", "_blank", "toolbar=no, scrollbars=no, resizable=yes");
   };
 
   var persist_server_queue = function(){

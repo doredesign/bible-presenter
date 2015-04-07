@@ -8,6 +8,13 @@ class SinatraBootstrap < Sinatra::Base
   end
 
   get '/client' do
+    @additional_css = [
+      {:href=>'/stylesheets/reveal.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"},
+      {:href=>'/stylesheets/theme/white.css', :rel => 'stylesheet', :id => "theme"}
+    ]
+    @additional_js = [
+      "/javascripts/reveal.js"
+    ]
     haml :client
   end
 

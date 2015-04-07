@@ -69,3 +69,12 @@
 .hidden{
   display: none;
 }
+
+.reveal .slides {
+  p {
+    text-align: left;
+  }
+  sup{
+    font-size: 60%;
+  }
+}
