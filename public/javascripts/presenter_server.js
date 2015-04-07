@@ -33,7 +33,9 @@ PresenterServer = (function(_){
   var send_data = function(data){
     if(!state.window_open) open_window();
     var event_name_str = event_name(_.now());
-    console.log('Sending event: ' + event_name_str);
+    if ( console && console.log ) {
+      console.log('Sending event: ' + event_name_str);
+    }
     persist_server_queue(event_name_str);
     persist_data(event_name_str, JSON.stringify(data));
   };

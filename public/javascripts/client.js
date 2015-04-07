@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-  console.log('we rock the client');
   var event_handler = function(data){
     // $fums_container.html(data.fums);
     var text = data.value.passages[0].text;

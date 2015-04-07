@@ -18,7 +18,9 @@ PresenterClient = (function(server, $, _){
 
   var handle_server_event = function(server_event_name){
     client_queue_history.push(server_event_name);
-    console.log('Received event: ' + server_event_name);
+    if ( console && console.log ) {
+      console.log('Received event: ' + server_event_name);
+    }
 
     var event_data = fetch_data(server_event_name);
     return config.eventHandler && config.eventHandler.call(event_data, event_data);
