@@ -29,8 +29,17 @@ $(document).ready(function() {
     $spinner.hide();
   };
 
+  var window_closed_handler = function(){
+    $closed_window_button.fadeIn();
+  };
+
   var $passage_search = $('#passage_search').submit(do_search);
   var $button = $("#do_search");
+  var $closed_window_button = $('#window_opener').click(function(e){
+    e.preventDefault();
+    PresenterServer.openWindow();
+    $closed_window_button.fadeOut();
+  });
   var $input = $passage_search.find('input');
   var $spinner = $('#colorwheel_container');
   var $results = $('#results');
@@ -39,4 +48,5 @@ $(document).ready(function() {
   var $copyright_container = $results.find('#copyright_container');
   var $fums_container = $('#fums_container');
 
+  PresenterServer.init(window_closed_handler);
 });
