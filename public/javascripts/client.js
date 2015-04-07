@@ -4,17 +4,24 @@ $(document).ready(function() {
   var event_handler = function(data){
     // $fums_container.html(data.fums);
     var text = data.value.passages[0].text;
-    set_passage(text);
+    var reference = data.value.passages[0].display;
+    var $new_slide = set_passage(text);
+    set_reference(reference, $new_slide);
     init_reveal();
   };
 
   var set_passage = function(passage){
-    add_slide(passage);
+    return add_slide(passage);
   };
 
   var add_slide = function(content){
-    var slide_content = '<section>' + content + '</section>';
-    $slides.append(slide_content);
+    var new_slide = $('<section>' + content + '</section>');
+    $slides.append(new_slide);
+    return new_slide;
+  };
+
+  var set_reference = function(reference, $new_slide){
+    $new_slide.append('<aside class="reference">'+reference+'</aside>');
   };
 
   var init_reveal = function(){

@@ -9,6 +9,7 @@ $(document).ready(function() {
       var text = data.value.passages[0].text;
       $text.html(text);
       $copyright_container.html(data.value.passages[0].copyright);
+      $reference.text(data.value.passages[0].display);
 
       PresenterServer.sendData(data);
     });
@@ -34,6 +35,7 @@ $(document).ready(function() {
   var $spinner = $('#colorwheel_container');
   var $results = $('#results');
   var $text = $results.find('#text');
+  var $reference = $results.find('aside.reference');
   var $copyright_container = $results.find('#copyright_container');
   var $fums_container = $('#fums_container');
 

@@ -70,14 +70,28 @@
   display: none;
 }
 
-.reveal .slides {
+@mixin slide-presentation{
   h3 {
     display: none;
   }
-  p {
-    text-align: left;
-  }
   sup{
     font-size: 60%;
+  }
+  aside.reference{
+    text-align: right;
+  }
+}
+
+#results {
+  @include slide-presentation;
+  aside.reference{
+    margin-bottom: 16px;
+  }
+}
+
+.reveal .slides {
+  @include slide-presentation;
+  p {
+    text-align: left;
   }
 }

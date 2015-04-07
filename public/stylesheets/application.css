@@ -8453,12 +8453,28 @@ th.hide-for-touch {
   display: none;
 }
 
+#results h3 {
+  display: none;
+}
+#results sup {
+  font-size: 60%;
+}
+#results aside.reference {
+  text-align: right;
+}
+#results aside.reference {
+  margin-bottom: 16px;
+}
+
 .reveal .slides h3 {
   display: none;
 }
-.reveal .slides p {
-  text-align: left;
-}
 .reveal .slides sup {
   font-size: 60%;
+}
+.reveal .slides aside.reference {
+  text-align: right;
+}
+.reveal .slides p {
+  text-align: left;
 }
