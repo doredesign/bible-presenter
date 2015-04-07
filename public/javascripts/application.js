@@ -5,16 +5,24 @@ $(document).ready(function() {
     var search_query = $input.val();
     if(search_query.length <= 3) return false;
 
-    $.getJSON('/search/' + search_query, function(data){
-      enable_form();
-      // $fums_container.html(data.fums);
-      var text = data.value.passages[0].text;
-      $text.html(text);
-      $copyright_container.html(data.value.passages[0].copyright);
-      $reference.text(data.value.passages[0].display);
+    $error_message.hide();
 
-      PresenterServer.sendData(data);
-    });
+    $.getJSON('/search/' + search_query)
+      .done(function(data){
+        // $fums_container.html(data.fums);
+        var text = data.value.passages[0].text;
+        $text.html(text);
+        $copyright_container.html(data.value.passages[0].copyright);
+        $reference.text(data.value.passages[0].display);
+
+        PresenterServer.sendData(data);
+      })
+      .always(function(){
+        enable_form();
+      })
+      .fail(function(jqXHR, textStatus, errorThrown){
+        show_error('There was an error with your search: "'+ search_query +'". Please check your search and try again.');
+      });
 
     disable_form();
   }
@@ -31,6 +39,10 @@ $(document).ready(function() {
     $spinner.hide();
   };
 
+  var show_error = function(error_message){
+    $error_message.text(error_message).show();
+  };
+
   var window_closed_handler = function(){
     $closed_window_button.fadeIn();
   };
@@ -42,6 +54,7 @@ $(document).ready(function() {
     PresenterServer.openWindow();
     $closed_window_button.fadeOut();
   });
+  var $error_message = $('#error-message');
   var $input = $passage_search.find('input');
   var $spinner = $('#colorwheel_container');
   var $results = $('#results');

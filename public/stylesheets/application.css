@@ -8453,6 +8453,10 @@ th.hide-for-touch {
   display: none;
 }
 
+#error-message {
+  color: #F04124;
+}
+
 #results h3 {
   display: none;
 }

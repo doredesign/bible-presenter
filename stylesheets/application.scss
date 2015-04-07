@@ -82,6 +82,10 @@
   }
 }
 
+#error-message{
+  color: #F04124;
+}
+
 #results {
   @include slide-presentation;
   aside.reference{
