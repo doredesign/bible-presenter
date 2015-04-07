@@ -10,6 +10,11 @@ $(document).ready(function() {
     $.getJSON('/search/' + search_query)
       .done(function(data){
         // $fums_container.html(data.fums);
+
+        if(!data.value.passages || !data.value.passages[0]){
+          return show_error('Could not find passage "'+ search_query +'". Please check your search and try again.');
+        }
+
         var text = data.value.passages[0].text;
         $text.html(text);
         $copyright_container.html(data.value.passages[0].copyright);
