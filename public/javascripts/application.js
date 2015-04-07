@@ -2,8 +2,10 @@ $(document).ready(function() {
 
   var do_search = function(e){
     e.preventDefault();
+    var search_query = $input.val();
+    if(search_query.length <= 3) return false;
 
-    $.getJSON('/search/' + $input.val(), function(data){
+    $.getJSON('/search/' + search_query, function(data){
       enable_form();
       // $fums_container.html(data.fums);
       var text = data.value.passages[0].text;
