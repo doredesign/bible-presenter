@@ -3867,42 +3867,34 @@ meta.foundation-mq-topbar {
   from {
     -webkit-transform: rotate(0deg);
   }
-
   to {
     -webkit-transform: rotate(360deg);
   }
 }
-
 @-moz-keyframes rotate {
   from {
     -moz-transform: rotate(0deg);
   }
-
   to {
     -moz-transform: rotate(360deg);
   }
 }
-
 @-o-keyframes rotate {
   from {
     -o-transform: rotate(0deg);
   }
-
   to {
     -o-transform: rotate(360deg);
   }
 }
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 .slideshow-wrapper {
   position: relative;
 }
@@ -8302,8 +8294,7 @@ th.hide-for-touch {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p, h2, h3 {
     orphans: 3;
     widows: 3;

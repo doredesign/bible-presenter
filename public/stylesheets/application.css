@@ -3867,42 +3867,34 @@ meta.foundation-mq-topbar {
   from {
     -webkit-transform: rotate(0deg);
   }
-
   to {
     -webkit-transform: rotate(360deg);
   }
 }
-
 @-moz-keyframes rotate {
   from {
     -moz-transform: rotate(0deg);
   }
-
   to {
     -moz-transform: rotate(360deg);
   }
 }
-
 @-o-keyframes rotate {
   from {
     -o-transform: rotate(0deg);
   }
-
   to {
     -o-transform: rotate(360deg);
   }
 }
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 .slideshow-wrapper {
   position: relative;
 }
@@ -8302,8 +8294,7 @@ th.hide-for-touch {
 
   @page {
     margin: 0.5cm;
-}
-
+  }
   p, h2, h3 {
     orphans: 3;
     widows: 3;
@@ -8366,42 +8357,34 @@ th.hide-for-touch {
   from {
     opacity: 1;
   }
-
   to {
     opacity: 0.2;
   }
 }
-
 @keyframes fade {
   from {
     opacity: 1;
   }
-
   to {
     opacity: 0.2;
   }
 }
-
 @-webkit-keyframes rotate {
   from {
     -webkit-transform: rotate(0deg);
   }
-
   to {
     -webkit-transform: rotate(360deg);
   }
 }
-
 @keyframes rotate {
   from {
     transform: rotate(0deg);
   }
-
   to {
     transform: rotate(360deg);
   }
 }
-
 .spinner.colorwheel {
   position: relative;
   display: inline-block;
@@ -8423,13 +8406,13 @@ th.hide-for-touch {
 }
 
 .spinner.colorwheel::before {
-  background: linear-gradient(to right, #008000, #ffff00);
+  background: linear-gradient(to right, green, yellow);
   -webkit-animation: rotate 2.5s linear infinite;
   animation: rotate 2.5s linear infinite;
 }
 
 .spinner.colorwheel::after {
-  background: linear-gradient(to bottom, #ff0000, #0000ff);
+  background: linear-gradient(to bottom, red, blue);
   -webkit-animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
   animation: fade 2s infinite alternate, rotate 2.5s linear reverse infinite;
 }
@@ -8460,25 +8443,41 @@ th.hide-for-touch {
 #results h3 {
   display: none;
 }
-#results sup {
-  font-size: 60%;
+#results sup, #results span.v {
+  font-size: 70%;
+  vertical-align: super;
+}
+#results .add {
+  font-style: italic;
 }
 #results aside.reference {
   text-align: right;
+}
+#results p {
+  margin-bottom: 0;
 }
 #results aside.reference {
   margin-bottom: 16px;
 }
 
-.reveal .slides h3 {
+.reveal .slides .present h3 {
   display: none;
 }
-.reveal .slides sup {
-  font-size: 60%;
+.reveal .slides .present sup, .reveal .slides .present span.v {
+  font-size: 70%;
+  vertical-align: super;
 }
-.reveal .slides aside.reference {
+.reveal .slides .present .add {
+  font-style: italic;
+}
+.reveal .slides .present aside.reference {
   text-align: right;
 }
-.reveal .slides p {
+.reveal .slides .present p {
   text-align: left;
+  line-height: 1.3;
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 42px;
+  font-weight: normal;
+  color: #222;
 }

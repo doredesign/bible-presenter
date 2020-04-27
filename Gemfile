@@ -6,10 +6,10 @@ gem 'sinatra'
 gem 'shotgun'
 gem 'haml'
 
-gem 'biblesearch-api'
-gem 'hashie', '~> 2.1.2'
+gem 'biblesearch-api', '~> 1.2.0'
+gem 'hashie'
 gem 'pry'
 
 # Sass & Compass
 gem 'sass'
-gem 'compass'
+gem 'compass', '~> 1.0.0.alpha.21'

@@ -2,6 +2,7 @@ require 'sinatra/base'
 
 class SinatraBootstrap < Sinatra::Base
   require './helpers/render_partial'
+  require './bible'
 
   get '/' do
     haml :index
@@ -10,7 +11,7 @@ class SinatraBootstrap < Sinatra::Base
   get '/client' do
     @additional_css = [
       {:href=>'/stylesheets/reveal.css', :media => "screen", :rel => 'stylesheet', :type => "text/css"},
-      {:href=>'/stylesheets/theme/white.css', :rel => 'stylesheet', :id => "theme"}
+      {:href=>'/stylesheets/theme/white.css', :rel => 'stylesheet', :id => "theme", :type => "text/css"}
     ]
     @additional_js = [
       "/javascripts/reveal.js"
@@ -19,8 +20,8 @@ class SinatraBootstrap < Sinatra::Base
   end
 
   get '/search/:query' do
-    biblesearch = BibleSearch.new('CTvFYwXbINxqeO2eMGKSTqDqnnykcE7zGyGIqoZX')
-    result = biblesearch.search(params[:query], {version:'eng-KJV'})
+    bible = Bible.new(ENV["API_KEY"])
+    result = bible.search(params[:query])
     JSON.generate result
   end
 

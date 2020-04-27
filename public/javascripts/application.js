@@ -11,14 +11,14 @@ $(document).ready(function() {
       .done(function(data){
         // $fums_container.html(data.fums);
 
-        if(!data.value.passages || !data.value.passages[0]){
+        if(!data.data.passages || !data.data.passages[0]){
           return show_error('Could not find passage "'+ search_query +'". Please check your search and try again.');
         }
 
-        var text = data.value.passages[0].text;
-        $text.html(text);
-        $copyright_container.html(data.value.passages[0].copyright);
-        $reference.text(data.value.passages[0].display);
+        var html = data.data.passages[0].content;
+        $text.html(html);
+        $copyright_container.html(data.data.passages[0].copyright);
+        $reference.text(data.data.passages[0].reference);
 
         PresenterServer.sendData(data);
       })

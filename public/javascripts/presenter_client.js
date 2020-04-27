@@ -23,7 +23,7 @@ PresenterClient = (function(server, $, _){
     }
 
     var event_data = fetch_data(server_event_name);
-    return config.eventHandler && config.eventHandler.call(event_data, event_data);
+    return config.eventHandler && config.eventHandler.call(event_data, server_event_name);
   };
 
   var fetch_data = function(key){
