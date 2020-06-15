@@ -70,18 +70,27 @@
   display: none;
 }
 
+#passage_search .checkbox{
+  display: inline-block;
+
+  label {
+    margin-left: 0px;
+  }
+}
+
 @mixin slide-presentation{
   h3 {
     display: none;
   }
   sup, span.v {
-    font-size: 70%;
-    vertical-align: super;
+    display: none;
+    // font-size: 70%;
+    // vertical-align: super;
   }
 
-  .add {
-    font-style: italic;
-  }
+  // .add {
+  //   font-style: italic;
+  // }
 
   aside.reference{
     text-align: right;
@@ -102,6 +111,14 @@
   aside.reference{
     margin-bottom: 16px;
   }
+
+  .copyright_container {
+    font-size: 10px;
+  }
+
+  .spanish {
+    margin-top: 30px;
+  }
 }
 
 .reveal .slides .present {
@@ -113,5 +130,7 @@
     font-size: 42px;
     font-weight: normal;
     color: #222;
+    margin-bottom: 0;
+    margin-top: 30px;
   }
 }

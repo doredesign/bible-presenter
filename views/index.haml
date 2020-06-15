@@ -10,12 +10,16 @@
       .row
         .large-12.columns
           %label Bible Passage
-          %input{type: 'text', placeholder: 'Rom 12:1-2'}
+          %input{type: 'text', placeholder: 'Rom 12:1-2', id: "search"}
           %input#do_search.button{type: 'submit', value: 'Search'}
           %a#window_opener.alert.button.hidden{href: '#'} Repen slides window
           %span#colorwheel_container.hidden
             #colorwheel.spinner.colorwheel
               .centerpiece
+          .checkbox
+            %input{id: 'spanish', name: 'spanish', type: 'checkbox', placeholder: 'Rom 12:1-2'}
+            %label{for: 'spanish', class: 'spanish'}
+              Include Spanish translation
 
       .row
         .large-12.columns
@@ -24,9 +28,14 @@
       .row
         .large-12.columns
           #results
-            #text
-            %aside.reference
-            #copyright_container
+            .english
+              .text
+              %aside.reference
+              .copyright_container
+            .spanish
+              .text
+              %aside.reference
+              .copyright_container
 
     .large-6.small-12.columns
       %h3 Instructions

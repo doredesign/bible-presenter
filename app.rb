@@ -20,9 +20,22 @@ class SinatraBootstrap < Sinatra::Base
   end
 
   get '/search/:query' do
-    bible = Bible.new(ENV["API_KEY"])
-    result = bible.search(params[:query])
+    search params[:query]
+  end
+
+  get '/spanish/:passage_id' do
+    result = bible.spanish_passage(params[:passage_id])
     JSON.generate result
+  end
+
+  def search(query, spanish = false)
+    method = spanish ? :search_spanish : :search
+    result = bible.send(method, query)
+    JSON.generate result
+  end
+
+  def bible
+    @bible ||= Bible.new(ENV["API_KEY"])
   end
 
   # start the server if ruby file executed directly

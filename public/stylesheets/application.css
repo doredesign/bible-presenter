@@ -8436,6 +8436,13 @@ th.hide-for-touch {
   display: none;
 }
 
+#passage_search .checkbox {
+  display: inline-block;
+}
+#passage_search .checkbox label {
+  margin-left: 0px;
+}
+
 #error-message {
   color: #F04124;
 }
@@ -8444,11 +8451,7 @@ th.hide-for-touch {
   display: none;
 }
 #results sup, #results span.v {
-  font-size: 70%;
-  vertical-align: super;
-}
-#results .add {
-  font-style: italic;
+  display: none;
 }
 #results aside.reference {
   text-align: right;
@@ -8459,16 +8462,18 @@ th.hide-for-touch {
 #results aside.reference {
   margin-bottom: 16px;
 }
+#results .copyright_container {
+  font-size: 10px;
+}
+#results .spanish {
+  margin-top: 30px;
+}
 
 .reveal .slides .present h3 {
   display: none;
 }
 .reveal .slides .present sup, .reveal .slides .present span.v {
-  font-size: 70%;
-  vertical-align: super;
-}
-.reveal .slides .present .add {
-  font-style: italic;
+  display: none;
 }
 .reveal .slides .present aside.reference {
   text-align: right;
@@ -8480,4 +8485,6 @@ th.hide-for-touch {
   font-size: 42px;
   font-weight: normal;
   color: #222;
+  margin-bottom: 0;
+  margin-top: 30px;
 }

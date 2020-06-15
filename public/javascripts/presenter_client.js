@@ -11,19 +11,19 @@ PresenterClient = (function(server, $, _){
   var check_queue = function(){
     var queue_state = fetch_data(server.config.localStore.queue);
     var diff = _.difference(queue_state, client_queue_history);
-    _.forEach(diff, function(server_event_name){
-      handle_server_event(server_event_name);
+    _.forEach(diff, function(event_id){
+      handle_server_event(event_id);
     });
   };
 
-  var handle_server_event = function(server_event_name){
-    client_queue_history.push(server_event_name);
+  var handle_server_event = function(event_id){
+    client_queue_history.push(event_id);
     if ( console && console.log ) {
-      console.log('Received event: ' + server_event_name);
+      console.log('Received event: ' + event_id);
     }
 
-    var event_data = fetch_data(server_event_name);
-    return config.eventHandler && config.eventHandler.call(event_data, server_event_name);
+    var event_data = fetch_data(event_id);
+    return config.eventHandler && config.eventHandler.call(event_data, event_data, event_id);
   };
 
   var fetch_data = function(key){

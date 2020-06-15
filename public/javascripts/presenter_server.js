@@ -11,7 +11,7 @@ PresenterServer = (function(_){
   };
 
   var check_window = function(){
-    if(state.window_open && state.monitoring_window && !state.window_open.window){
+    if(state.window_open && state.monitoring_window && state.window_open.closed){
       state.monitoring_window = false;
       config.window_closed_handler && config.window_closed_handler.call();
     }
@@ -30,17 +30,17 @@ PresenterServer = (function(_){
     localStorage.setItem(key, value);
   };
 
-  var send_data = function(data){
+  var send_data = function (data, event_id){
     if(!state.window_open) open_window();
-    var event_name_str = event_name(_.now());
     if ( console && console.log ) {
-      console.log('Sending event: ' + event_name_str);
+      console.log('Sending event: ' + event_id);
     }
-    persist_server_queue(event_name_str);
-    persist_data(event_name_str, JSON.stringify(data));
+    persist_server_queue(event_id);
+    persist_data(event_id, JSON.stringify(data));
   };
 
-  var event_name = function(timestamp){
+  var new_search_id = function(timestamp){
+    var timestamp = _.now();
     return config.localStore.eventsPrefix + timestamp;
   };
 
@@ -58,6 +58,7 @@ PresenterServer = (function(_){
   }
 
   return {
+    newSearchId: new_search_id,
     openWindow: open_window,
     sendData: send_data,
     config: config,
